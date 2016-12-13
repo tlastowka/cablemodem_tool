@@ -1,0 +1,70 @@
+tools for interacting with an Technicolor cable modem from Comcast/XFINITY
+
+
+Cable Providers don't exactly make it easy to integrate their hardware with anything else.
+
+If they give you anything, its probably a web interface to the modem.  No snmp or syslog.
+
+My connection acts up from time to time.  Usually rebooting it will fix it.
+
+I wanted to be able to gather the logs and reboot the modem from a command line, so I could
+do it automatically.  This does that.
+
+requires python3 and the dependencies in requirements.txt
+
+No idea what else it will work on, but was tested on the one I have:
+
+    HARDWARE
+    --------
+
+    Model: TC8305C
+    HW Identifier: 1.5
+    Processor Speed: 600 Mhz
+    DRAM: 128 MB
+    Flash: 64 MB
+
+    SOFTWARE
+    --------
+
+    eMTA & DOCSIS Software Version: 01.E6.01.22.25
+    Packet Cable: 2.0
+
+
+USAGE
+
+  The functions are intended to be imported from a larger program, but it will work from the command line
+
+usage: cmtool.py [-h] [--address ADDRESS] [--username USERNAME]
+                 [--password PASSWORD]
+                 {logs,reboot}
+
+positional arguments:
+  {logs,reboot}
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --address ADDRESS
+  --username USERNAME
+  --password PASSWORD
+
+
+address, username and password all use the defaults comcast gave me on mine if not provided
+
+To display the logs:
+
+ > python cmtool.py logs
+
+To reboot
+
+ > python cmtool.py reboot
+
+
+TROUBLESHOOTING:
+
+  If something fails, it probably means your modem is unreachable, or uses a different interface than the one mine does.
+
+  For the former, Make sure its reachable with a web browser and that username/password/address are correct.
+
+  For the latter, comcast uses a similar interface in a lot of modems, but it varies a little.  You could probably modify this easily to support yours
+
+
