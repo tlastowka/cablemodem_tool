@@ -65,6 +65,7 @@ TROUBLESHOOTING:
 
   For the former, Make sure its reachable with a web browser and that username/password/address are correct.
 
-  For the latter, comcast uses a similar interface in a lot of modems, but it varies a little.  You could probably modify this easily to support yours
+  For the latter, comcast uses a similar interface in a lot of modems, but it varies a little.  You could probably modify this easily to support yours.
+  A few minutes inspecting post requests with Firebug or Chrome Developer Tools is all it should take
 
 
